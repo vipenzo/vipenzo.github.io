@@ -1,0 +1,155 @@
+@media (min-width: 300px) {
+  .header-dark {
+    height: 327px;
+    padding-top: 169px;
+  }
+}
+
+@media (min-width: 576px) {
+  .header-dark {
+    height: 494px;
+    padding-top: 230px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-dark {
+    height: 641px;
+    padding-top: 319px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-dark {
+    height: 796px;
+    padding-top: 427px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-dark {
+    height: 974px;
+    padding-top: 503px;
+  }
+}
+
+@media (min-width: 300px) {
+  #bgimage {
+    background-image: url("../../assets/img/cropped-homer2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 266px;
+    margin-top: 55px;
+  }
+}
+
+@media (min-width: 576px) {
+  #bgimage {
+    background-image: url("../../assets/img/cropped-homer2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 300px;
+    margin-top: 77px;
+  }
+}
+
+@media (min-width: 768px) {
+  #bgimage {
+    background-image: url("../../assets/img/cropped-homer2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 381px;
+    margin-top: 55px;
+  }
+}
+
+@media (min-width: 992px) {
+  #bgimage {
+    background-image: url("../../assets/img/cropped-homer2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 363px;
+    margin-top: 69px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #bgimage {
+    background-image: url("../../assets/img/cropped-homer2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 462px;
+    margin-top: 69px;
+  }
+}
+
+@media (min-width: 300px) {
+  .display-3.text-right.shadow-lg {
+    color: rgb(128,124,127);
+    background-color: rgba(255,255,255,0.64);
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .display-3.text-right.shadow-lg {
+    color: rgb(128,124,127);
+    background-color: rgba(255,255,255,0.64);
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .display-3.text-right.shadow-lg {
+    color: rgb(128,124,127);
+    background-color: rgba(255,255,255,0.64);
+    font-size: 68px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .display-3.text-right.shadow-lg {
+    color: rgb(128,124,127);
+    background-color: rgba(255,255,255,0.64);
+    font-size: 80px;
+  }
+}
+
+@media (min-width: 300px) {
+  #sitedescr {
+    background-color: rgba(255,255,255,0.64);
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 576px) {
+  #sitedescr {
+    background-color: rgba(255,255,255,0.64);
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  #sitedescr {
+    background-color: rgba(255,255,255,0.64);
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  #sitedescr {
+    background-color: rgba(255,255,255,0.64);
+    font-size: 20px;
+  }
+}
+

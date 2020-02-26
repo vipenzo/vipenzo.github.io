@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Deps: perun:0.4.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/perun/perun/0.4.3-SNAPSHOT/perun-0.4.3-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

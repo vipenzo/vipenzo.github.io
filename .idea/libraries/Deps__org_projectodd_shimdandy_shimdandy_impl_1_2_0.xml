@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Deps: org.projectodd.shimdandy/shimdandy-impl:1.2.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/projectodd/shimdandy/shimdandy-impl/1.2.0/shimdandy-impl-1.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

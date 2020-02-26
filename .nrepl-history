@@ -1,0 +1,5 @@
+(boot (perun/global-metadata))
+(boot (mydev))
+(boot (serve))
+(boot (serve :resource-root "public"))
+(boot (mydev))
