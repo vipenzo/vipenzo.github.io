@@ -1,0 +1,28 @@
+   
+
+body {
+    color:#1d0e5d;
+    background-image: url("resources/images/cropped-homer2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#header {
+    height: 350px;
+    position:sticky;
+    top: 0;
+}
+
+#mytitle {
+    background-color: aquamarine;
+    font: 20;
+}
+
+#prova {
+    background-color: salmon;
+    color:cadetblue
+    font: 16;
+    top: 150;
+    position: sticky;
+    z-index: -1;
+}
