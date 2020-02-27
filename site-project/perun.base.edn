@@ -1,0 +1,2 @@
+ {:doc-root "public"
+   :io.perun/version perun/+version+}

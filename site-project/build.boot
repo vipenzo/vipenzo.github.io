@@ -7,7 +7,7 @@
                   [hickory "0.7.1" :exclusions [org.clojure/clojure]]
                   [pandeiro/boot-http "0.8.3" :exclusions [org.clojure/clojure]]])
 
-(comment [perun "0.4.3-SNAPSHOT" :scope "test"])
+
 
 (require '[clojure.string :as str]
          '[boot.core :as boot]
@@ -20,12 +20,6 @@
          '[pandeiro.boot-http :refer [serve]])
 
 
-
-
-
-(task-options!
-
-  )
 
 (deftask global-metadata
   "Read global metadata from `perun.base.edn` or configured file.
@@ -93,7 +87,7 @@
            (perun/collection :renderer 'io.embarassed.index/render :page "index.html")
            (move-assets)
            (show "-f")
-           (target)
+           (target "-d" "../target")
            )
          )
 
@@ -101,7 +95,7 @@
          []
          (comp (watch)
                (build-from-template)
-               (serve "-d" "target/public")))
+               (serve "-d" "../target")))
 
 (deftask build
   "Build test blog. This task is just for testing different plugins together."

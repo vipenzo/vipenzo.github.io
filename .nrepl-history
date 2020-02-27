@@ -3,3 +3,4 @@
 (boot (serve))
 (boot (serve :resource-root "public"))
 (boot (mydev))
+(boot (build-from-template))

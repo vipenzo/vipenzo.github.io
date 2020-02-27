@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Deps: boot/core:2.8.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/boot/core/2.8.2/core-2.8.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
