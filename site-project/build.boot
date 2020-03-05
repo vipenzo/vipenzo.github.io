@@ -1,10 +1,12 @@
 (set-env!
   :asset-paths #{"site-template/assets"}
-  :source-paths #{"src"}
+  :source-paths #{"src" "resources"}
   :resource-paths #{"content"}
   :dependencies '[
                   [hiccup "1.0.5" :exclusions [org.clojure/clojure]]
                   [hickory "0.7.1" :exclusions [org.clojure/clojure]]
+                  [clj-time "0.15.2"]
+                  [clojure.java-time "0.3.2"]
                   [pandeiro/boot-http "0.8.3" :exclusions [org.clojure/clojure]]])
 
 
@@ -15,6 +17,7 @@
          '[io.perun :as perun]
          '[io.perun.core :as cperun]
          '[hickory.core :as hk]
+         '[java-time :as jt]
          '[io.embarassed.index :as index-view]
          '[io.embarassed.post :as post-view]
          '[pandeiro.boot-http :refer [serve]])
@@ -40,7 +43,7 @@
       (cperun/report-info "global-metadata" "read global metadata from %s" global-meta)
       (let [fs (pm/set-global-meta fileset global-meta)]
         (cperun/report-info "DD" global-meta)
-        (println (pm/get-global-meta fs))
+        ;(println (pm/get-global-meta fs))
         fs
         )
       )))
@@ -82,14 +85,11 @@
            (perun/global-metadata)
            (perun/print-meta)
            (perun/markdown)
-           (perun/render :renderer 'io.embarassed.post/render)
-           (show "-f")
+           ;(perun/render :renderer 'io.embarassed.post/render)
            (perun/collection :renderer 'io.embarassed.index/render :page "index.html")
            (move-assets)
-           (show "-f")
            (target "-d" "../target")
-           )
-         )
+           ))
 
 (deftask mydev
          []

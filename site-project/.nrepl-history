@@ -1,0 +1,9 @@
+(boot (mydev))
+(boot (build-from-template))
+(boot (serve))
+(boot (mydev))
+(boot (build-from-template))
+@last-page
+@io.embarassed.index/last-page
+(io.embarassed.index/render {})
+(boot (mydev))

@@ -65,7 +65,7 @@
 (def ^:private +print-meta-defaults+
   {:map-fn identity
    :filterer identity
-   :extensions []
+   :extensions ["md"]
    :content-exts #{}})
 
 (deftask print-meta
@@ -78,7 +78,7 @@
     (let [{:keys [content-exts] :as options} (merge +print-meta-defaults+ *opts*)
           entries (doall (map (:map-fn options) (filter-meta-by-ext fileset options)))]
       (pod/with-call-in @print-meta-pod
-        (io.perun.print-meta/print-meta ~entries ~content-exts)))))
+                        (io.perun.print-meta/print-meta ~entries ~content-exts)))))
 
 (defn trace
   "Helper function, conj `kw` onto the `:io.perun/trace` metadata

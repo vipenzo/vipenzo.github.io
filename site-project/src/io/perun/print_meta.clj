@@ -11,4 +11,6 @@
       entry)))
 
 (defn print-meta [data content-exts]
-  (puget/cprint (map (assoc-content-fn content-exts) data)))
+  ;(puget/cprint "io.perun.print-meta/print-meta")
+  (puget/cprint (map (assoc-content-fn content-exts) data))
+  )

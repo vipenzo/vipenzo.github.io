@@ -153,3 +153,17 @@
   }
 }
 
+.list-group-horizontal .list-group-item + .list-group-item {
+  border-top-width: 0;
+  border-left-width: 0;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  background-color: #fff;
+  border: 0px solid rgba(0,0,0,.125);
+  color: rgb(5,90,174);
+}
+
