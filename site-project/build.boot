@@ -75,6 +75,7 @@
            ;(perun/render :renderer 'io.embarassed.post/render)
            (perun/collection :renderer 'io.embarassed.index/render :page "index.html" :doc-root "target/public")
            (move-assets)
+           (show "-f")
            (target "-d" "../target")
            ))
 
