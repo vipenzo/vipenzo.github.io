@@ -54,20 +54,6 @@
          (println (pm/get-global-meta fileset))
          fileset))
 
-(deftask percapire
-         "Build test blog. This task is just for testing different plugins together."
-         []
-         (comp
-           (perun/global-metadata)
-           (perun/print-meta)
-           (perun/markdown)
-           (perun/render :renderer 'io.embarassed.post/render)
-           (perun/collection :renderer 'io.embarassed.index/render :page "index.html")
-           (show "-f")
-           (target)
-
-           )
-         )
 
 (deftask move-assets []
          (comp
@@ -85,8 +71,9 @@
            (perun/global-metadata)
            (perun/print-meta)
            (perun/markdown)
+           (show "-f")
            ;(perun/render :renderer 'io.embarassed.post/render)
-           (perun/collection :renderer 'io.embarassed.index/render :page "index.html")
+           (perun/collection :renderer 'io.embarassed.index/render :page "index.html" :doc-root "target/public")
            (move-assets)
            (target "-d" "../target")
            ))
@@ -95,7 +82,7 @@
          []
          (comp (watch)
                (build-from-template)
-               (serve "-d" "../target")))
+               (serve "-d" "../")))
 
 (deftask build
   "Build test blog. This task is just for testing different plugins together."

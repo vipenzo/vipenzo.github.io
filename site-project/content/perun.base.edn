@@ -1,3 +1,6 @@
 {:base-url "http://localhost:3000/"
+ :doc-root "public"
+ :out-dir "public"
+ :target-dir "target/public"
  :site-title "L'imbarazzo dell'asceta"
  :description "quattro chiacchiere su spiritualità, tecnologia, politica e altro"}

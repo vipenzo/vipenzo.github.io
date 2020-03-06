@@ -69,12 +69,12 @@
         (recur (f node data) others)))))
 
 (defn get-posts-class [post]
-  (if ((set (:tags post)) "Blog")
+  (if (nil? (:image post))
     "post-template-noimage"
     "post-template-image"))
 
 
-(defn list-render [node selector class-name-pattern entry-fn data-functions data]
+(defn list-render-old [node selector class-name-pattern entry-fn data-functions data]
   (let [loc (first (s/select-locs selector node))
         templates (make-children-class-table loc class-name-pattern)
         post-fn (fn [post]
@@ -87,14 +87,41 @@
                      (filter some?))]
     (zip/root (zip/edit loc #(assoc-in % [:content] entries)))))
 
+(defn list-render
+  ([node selector class-name-pattern entry-fn data-functions data] (list-render node selector class-name-pattern entry-fn data-functions data (fn [templates _] (first (vals templates)))))
+  ([node selector class-name-pattern entry-fn data-functions data get-template-fn]
+   (let [loc (first (s/select-locs selector node))
+         templates (make-children-class-table loc class-name-pattern)
+         post-fn (fn [post]
+                   (println "permalink: " (:permalink post))
+                   (println "canonical-url: " (:canonical-url post))
+                   (println "original-path: " (:original-path post))
+                   (println "out-dir: " (:out-dir post))
+
+                   (let [template (get-template-fn templates post)]
+                     (make-child-node template data-functions post)))
+         entries (->> data
+                      entry-fn
+                      (map post-fn)
+                      (filter some?))]
+     (zip/root (zip/edit loc #(assoc-in % [:content] entries))))))
+
+
 (defn page-render [node data]
-  (let [data-functions [#(update-entry %1 (s/class "post-summary") (:headline %2))
+  (let [tag-fn #(do
+                  (update-entry %1 (s/class "post-tag") %2))
+        data-functions [#(update-entry %1 (s/class "post-summary") (:headline %2))
                         #(update-entry %1 (s/class "post-title") (:title %2))
                         #(update-entry %1 (s/class "post-image") (:image %2) [:attrs :src])
+                        #(update-entry %1 (s/class "post-link") (:permalink %2) [:attrs :href])
                         #(update-entry %1 (s/class "post-date") (format-date (iso-datetime (updated %2))))
-                        #(update-entry %1 (s/class "post-description") (:description %2))]]
-    (-> node
-        (list-render (s/class "landing-page") #"post-template" :entries data-functions data))))
+                        #(update-entry %1 (s/class "post-description") (:description %2))
+                        #(list-render %1 (s/class "post-tags") #"post-tag" :tags [tag-fn]  %2)
+                        ]]
+    (let [get-template-fn (fn [templates post]
+                            (let [post-class (get-posts-class post)]
+                              (templates post-class)))]
+      (list-render node (s/class "landing-page") #"post-template" :entries data-functions data get-template-fn))))
 
 
 (defn get-dom [file-path]
@@ -105,7 +132,8 @@
 
 
 (defn render [{global-meta :meta posts :entries :as data}]
-  (println "index render")
+  (println "index render meta")
+  (println global-meta)
   (let [new-page (page-render (get-dom "site-template/index.html") data)]
     (hickory.render/hickory-to-html new-page)))
 

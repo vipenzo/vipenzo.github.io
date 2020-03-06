@@ -597,7 +597,7 @@
                                boot/tmp-file
                                slurp
                                read-string)]
-      (perun/report-info "MIO global-metadata" "RRRead global metadata from %s" meta-file)
+      (perun/report-info "MIO global-metadata" "RRRead global metadata from %s" global-meta)
       (pm/set-global-meta fileset global-meta))))
 
 (def ^:private ^:deps ttr-deps
@@ -1031,6 +1031,7 @@
                        {:task-name "collection"
                         :tracer :io.perun/collection
                         :grouper #(-> {p {:entries %}})})]
+    (println "collection outdir:" (:out-dir options))
     (assortment-task options)))
 
 (def ^:private +tags-defaults+

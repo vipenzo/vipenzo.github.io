@@ -10,7 +10,7 @@
 (def +global-meta-key+ :io.perun.global)
 
 (def +global-meta-defaults+
-  {:doc-root "public"
+  {:doc-root "target/public"
    :io.perun/version perun/+version+})
 
 (defn get-global-meta
@@ -26,11 +26,11 @@
   (second (re-find #"(.+?)(\.[^.]*$|$)" name)))
 
 (defn path-meta
-  [path {:keys [doc-root base-url]} & [file]]
+  [path {:keys [doc-root base-url target-dir]} & [file]]
   (let [file (or file (io/file path))
         filename (.getName file)
         slug (slug filename)
-        permalink (perun/path->permalink path doc-root)]
+        permalink (perun/path->permalink path doc-root target-dir)]
     (merge {:path path
             :parent-path (perun/parent-path path filename)
             :full-path (.getPath file)

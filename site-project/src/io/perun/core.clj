@@ -84,12 +84,13 @@
   base-url)
 
 (defn path->permalink
-  [path doc-root]
+  [path doc-root target-dir]
   (let [match-doc-root (if (= doc-root ".")
                          ""
                          (re-pattern (str "^" doc-root)))]
     (-> path
         (string/replace match-doc-root "")
+        (#(str target-dir %))
         path-to-url
         (string/replace #"(^|/)index\.html$" "/")
         absolutize-url)))
@@ -99,6 +100,6 @@
   (str base-url (subs permalink 1)))
 
 (defn path->canonical-url
-  [path doc-root base-url]
-  (let [permalink (path->permalink path doc-root)]
+  [path doc-root base-url target-dir]
+  (let [permalink (path->permalink path doc-root target-dir)]
     (permalink->canonical-url permalink base-url)))
